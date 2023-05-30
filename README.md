@@ -215,3 +215,58 @@ Todo arquivo em linux podem ter 3 tipos de permissão `r-w-x` (_read_,_write_,_e
 ```console
 user_name@vm1:~$ chmod <grupo>+x <file>
 ```
+
+## Variáveis de ambiente e PATH
+
+- env: Revela as variáveis de ambiente
+
+```console
+user_name@vm1:~$ env
+```
+podemos adicionar mais um endereço na variável de ambiente PATH de maneira, abrindo o arquivo .bashrc (no ubuntu), e adicionando a seguinte linha
+
+```console
+PATH=$PATH:<dir>
+```
+
+## Instalação de programas
+
+O ubuntu oferece o apt, um sistema de gerenciamento de pacotes.
+alguns exemplos são
+
+```console
+user_name@vm1:~$ sudo apt-get update
+```
+
+```console
+user_name@vm1:~$ apt-cache search <package>
+```
+
+```console
+user_name@vm1:~$ sudo apt-install <package>
+```
+
+```console
+user_name@vm1:~$ sudo apt-get remove <package>
+```
+
+Podemos também instalar pacotes de um repositório não central, isto é, fazendo o download e posteriormente instalando na máquina. Após realizar o download de \<pacote>.deb 
+
+```console
+user_name@vm1:~$ dpkg -i <pacote>
+```
+a flag `-i` significa install, para remover basta substituir a flag para `-r` de remove .
+
+## Acesso remoto com ssh e scp
+
+```console
+user_name@vm1:~$ sudo apt-install ssh
+```
+```console
+user_name@vm1:~$ ssh user@<ip>
+```
+e para copiar um arquivo da máquina local para a máquina remota
+
+```console
+user_name@vm1:~$ scp -r <file> user@<ip>:/<path>
+```
